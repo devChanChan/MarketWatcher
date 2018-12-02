@@ -43,6 +43,7 @@ var stockListItem = "<tr class='stock-list-item'>\
   </tr>\
 ";
 
+// helper registrations
 Handlebars.registerHelper('stockChange', function(value) {
   var className = "price-change";
 
@@ -66,4 +67,6 @@ Handlebars.registerHelper('formatNumber', function(value, options) {
 
   return value;
 });
+
+// partials registrations
 Handlebars.registerPartial("stockListItem", stockListItem);
