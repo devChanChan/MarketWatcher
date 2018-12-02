@@ -1,5 +1,4 @@
 $(document).ready(function(){
-    $('.marquee').marquee();
 
 
     $("#myForm").submit(function(){
@@ -20,8 +19,10 @@ $(document).ready(function(){
     // $(window).on("resize", function(){                      
     //     resize();
     // });
-});
 
-// function resize(){    
-//     $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
-// }
+    // function resize(){    
+    //     $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
+    // }
+  $('.marquee').marquee();
+  getTopStocks();
+});

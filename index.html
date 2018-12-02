@@ -7,14 +7,7 @@
   <title>Stock Market Watcher</title>
 
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-  <script src="./js/jquery.marquee.js"></script>
-  <script src="./js/jquery.pause.min.js"></script>
-
-  <link rel="stylesheet" href="./css/style.css" />
-  <script src="js/index.js"></script>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 <body onload="init()">
   <!-- Home page -->
@@ -33,7 +26,6 @@
           <li><a href="#myportfolio" data-icon="user">My Portfolio</a></li>
         </ul>
       </div>
-      <div class='marquee'>Less text here</div>
     </div>
   </div><!-- Home page ends -->
 
@@ -53,7 +45,6 @@
           <li><a href="#myportfolio" data-icon="user">My Portfolio</a></li>
         </ul>
       </div>
-      <div class='marquee'>Less text here</div>
     </div>
   </div> <!-- Stock Markets page ends -->
 
@@ -63,7 +54,7 @@
       <h2>Stock Market Watcher</h2>
     </div>
     <div role="main" class="ui-content">
-
+      test
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -73,7 +64,6 @@
           <li><a href="#myportfolio" data-icon="user" class="ui-btn-active">My Portfolio</a></li>
         </ul>
       </div>
-      <div class='marquee'>Less text here</div>
     </div>
   </div> <!-- My Portfolio page ends -->
 
@@ -148,5 +138,22 @@
     }
   </script>
 
+  <div class='marquee'>Less text here</div>
+
+  <!-- Vendor libraries -->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+  <script src="./js/jquery.marquee.js"></script>
+  <script src="./js/jquery.pause.min.js"></script>
+
+  <!-- js files - needs to be in this order or it'll break-->
+  <script src="js/models.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/stock_api.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
