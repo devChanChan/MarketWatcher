@@ -7,7 +7,7 @@
   <title>Stock Market Watcher</title>
 
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/style.css"/>
 </head>
 <body onload="init()">
   <!-- Home page -->
@@ -16,7 +16,7 @@
       <h2>Stock Market Watcher</h2>
     </div>
     <div role="main" class="ui-content" id="home-background">
-      
+
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -67,10 +67,24 @@
     </div>
   </div> <!-- My Portfolio page ends -->
 
-
-
-
-
+  <!-- Stock details -->
+  <div data-role="page" id="stock-details">
+    <div data-role="header">
+      <h2>Stock Market Watcher</h2>
+    </div>
+    <div role="main" class="ui-content">
+      stock details
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#stockmarkets" data-icon="list" class="icon-list">Stock Markets</a></li>
+          <li><a href="#home" data-icon="home">Home</a></li>
+          <li><a href="#myportfolio" data-icon="user" class="ui-btn-active">My Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- Stock Details Page Ends -->
   <!-- Individual Stock page -->
   <div data-role="page" id="individualstock">
     <div data-role="header">
@@ -125,13 +139,13 @@
         datasets: [
           {
             fillColor: "rgba(255, 255, 255, 0)",
-            strokeColor: "#ff792e", 
+            strokeColor: "#ff792e",
             pointColor: "#194964",
             data: [65, 45, 10, 100]   // price for the date
           }
         ]
       }
-  
+
       cvs = document.getElementById("canvas");
       ctx = cvs.getContext("2d");
       myChart = new Chart(ctx).Line(chartData);

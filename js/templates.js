@@ -33,7 +33,7 @@ var stocksTemplate = "<table class='top-stocks'>\
 ";
 
 var stockListItem = "<tr class='stock-list-item'>\
-    <td>{{ticker}}</td>\
+    <td><a href='stock_details.html?ticker={{ticker}}'>{{ticker}}</a></td>\
     <td>{{name}}</td>\
     <td>{{formatNumber closePrice}}</td>\
     <td class='{{stockChange change}}'>{{formatNumber change format='0,0.00'}}</td>\

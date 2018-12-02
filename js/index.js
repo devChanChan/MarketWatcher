@@ -1,4 +1,5 @@
 var stocksTemplate = Handlebars.compile(stocksTemplate);
+var stockTicker = null;
 
 $(document).ready(function(){
 
@@ -18,15 +19,19 @@ $(document).ready(function(){
 
     // // canvas responsive
     // resize();
-    // $(window).on("resize", function(){                      
+    // $(window).on("resize", function(){
     //     resize();
     // });
 
-    // function resize(){    
+    // function resize(){
     //     $("#canvas").outerHeight($(window).height()-$("#canvas").offset().top- Math.abs($("#canvas").outerHeight(true) - $("#canvas").outerHeight()));
     // }
   $('.marquee').marquee();
   displayTopStocks();
+
+  $(document).on("pagebeforeshow","#stock-details",function(){ // When entering pagetwo
+    stockDetailsInit();
+  });
 });
 
 function displayTopStocks() {
@@ -42,4 +47,22 @@ function displayTopStocks() {
 
       container.html(html);
     });
+}
+
+function stockDetailsInit() {
+  stockTicker = getUrlParams("ticker");
+  console.log(stockTicker);
+}
+
+function getUrlParams(prop) {
+  var params = {};
+  var search = decodeURIComponent( window.location.href.slice( window.location.href.indexOf( '?' ) + 1 ) );
+  var definitions = search.split( '&' );
+
+  definitions.forEach( function( val, key ) {
+    var parts = val.split( '=', 2 );
+    params[ parts[ 0 ] ] = parts[ 1 ];
+  } );
+
+  return ( prop && prop in params ) ? params[ prop ] : params;
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Stock Market Watcher</title>
+
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+
+  <div data-role="page" id="stock-details">
+    <div data-role="header">
+      <h2>Stock Market Watcher</h2>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="index.html#stockmarkets" data-icon="list" class="icon-list">Stock Markets</a></li>
+          <li><a href="index.html#home" data-icon="home" class="ui-btn-active">Home</a></li>
+          <li><a href="index.html#myportfolio" data-icon="user">My Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/Chart.js"></script>
+
+  <!-- Vendor libraries -->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+  <script src="./js/jquery.marquee.js"></script>
+  <script src="./js/jquery.pause.min.js"></script>
+
+  <!-- js files - needs to be in this order or it'll break-->
+  <script src="js/models.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/stock_api.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>

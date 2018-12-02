@@ -57,6 +57,9 @@ function getTopStocks() {
 function searchStock(ticker) {
 }
 
+function getStockDetails(ticker) {
+}
+
 function handleGetTopStocksSuccess(response) {
   var stocks = response.data;
   var transformedData = [];
