@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'GothamBold';
+  src: url(./font/Gotham\ Bold.otf) format('truetype');
+}
+@font-face {
+  font-family: 'GothamBook';
+  src: url(./font/Gotham\ Book\ Regular.otf) format('truetype');
+}
+
+body {
+  font-family: GothamBook;
+}
+.marquee {
+  background-color: #000;
+}
+.ui-icon-list:after {
+  background-image: url("./img/chart.png");
+  background-size: 20px 20px;
+}
