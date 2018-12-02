@@ -35,11 +35,11 @@ var stocksTemplate = "<table class='top-stocks'>\
 var stockListItem = "<tr class='stock-list-item'>\
     <td>{{ticker}}</td>\
     <td>{{name}}</td>\
-    <td>{{closePrice}}</td>\
-    <td>{{stockChange change}}</td>\
-    <td>{{stockChange percentChange}}</td>\
-    <td>{{volumn}}</td>\
-    <td>{{marketCap}}</td>\
+    <td>{{formatNumber closePrice}}</td>\
+    <td class='{{stockChange change}}'>{{formatNumber change format='0,0.00'}}</td>\
+    <td class='{{stockChange percentChange}}'>{{formatNumber percentChange format='0,0.00'}}</td>\
+    <td>{{formatNumber volume format='0.00a'}}</td>\
+    <td>{{formatNumber marketCap format='0.00a'}}</td>\
   </tr>\
 ";
 
@@ -54,9 +54,16 @@ Handlebars.registerHelper('stockChange', function(value) {
     className += " positive";
   }
 
-  return new Handlebars.SafeString(
-    "<span class='" + className +"'>" + value + "</span>"
-  );
+  return className;
 });
 
+Handlebars.registerHelper('formatNumber', function(value, options) {
+  var format = options.hash.format;
+
+  if (format) {
+    return numeral(value).format(format);
+  }
+
+  return value;
+});
 Handlebars.registerPartial("stockListItem", stockListItem);

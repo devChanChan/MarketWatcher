@@ -4,8 +4,8 @@ var Stock = function (options) {
   this.closePrice = options.closePrice;
   this.change = options.change;
   this.percentChange = options.percentChange;
-  this.volume = numeral(options.volume).format("0.00a");
-  this.marketCap = numeral(options.marketCap).format("0.00a");
+  this.volume = options.volume;
+  this.marketCap = options.marketCap;
   this.priceHistory = options.priceHistory || [];
 };
 

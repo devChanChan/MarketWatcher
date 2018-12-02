@@ -67,28 +67,24 @@ function handleGetTopStocksSuccess(response) {
       name: value.name,
       closePrice: value.close_price,
       change: value.change,
-      percentChange: value.percent_change,
+      percentChange: value.percent_change * 100,
       volume: value.volume,
       marketCap: value.marketcap
     });
   });
   var sortedStock = _.sortBy(stockObjs, ["ticker"]);
 
-  console.log(sortedStock);
   return sortedStock;
 }
 
 function groupTopStocksResponseData(data) {
-  var groupedByTicker = _.groupBy(data, "identifier");
-  var transformed = _.transform(
-    groupedByTicker,
-    function(result, value, key) {
-      var transformedValue = _.reduce(value, function(itemResult, itemVal) {
-        itemResult[itemVal.item] = itemVal.value;
-        return itemResult;
-      }, {});
-
-      result[key] = transformedValue;
+  var transformed = _.reduce(
+    data,
+    function (result, value) {
+      var id = value.identifier;
+      var currentData = result[id] || {};
+      currentData[value.item] = value.value;
+      result[id] = currentData;
       return result;
     },
     {}
