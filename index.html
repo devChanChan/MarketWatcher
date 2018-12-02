@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Stock Market Watcher</title>
 
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="./css/style.css">
 </head>
-<body>
+<body onload="init()">
   <!-- Home page -->
   <div data-role="page" id="home">
     <div data-role="header">
       <h2>Stock Market Watcher</h2>
     </div>
-    <div role="main" class="ui-content">
-
+    <div role="main" class="ui-content" id="home-background">
+      
     </div>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
@@ -66,6 +66,77 @@
       </div>
     </div>
   </div> <!-- My Portfolio page ends -->
+
+
+
+
+
+  <!-- Individual Stock page -->
+  <div data-role="page" id="individualstock">
+    <div data-role="header">
+      <h2>Stock Market Watcher</h2>
+    </div>
+    <form role="main" class="ui-content" id="myForm" method="POST">
+      <canvas id="canvas"></canvas>
+
+      <div class="ui-field-contain" method="post">
+        <fieldset data-role="controlgroup">
+          <legend>Company:</legend>
+          <input type="text" name="company" placeholder="symbol" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Price: $</legend>
+          <input type="text" name="price" placeholder="price" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Quantity:</legend>
+          <input type="text" name="quantity" placeholder="# of shares" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Date:</legend>
+          <input type="date" name="date" />
+        </fieldset>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+          <legend>Type:</legend>
+          <input type="radio" name="type" id="typeBuy" value="buy" checked="checked" />
+          <label for="typeBuy">BUY</label>
+          <input type="radio" name="type" id="typeSell" value="sell" />
+          <label for="typeSell">SELL</label>
+        </fieldset>
+        <input type="submit" value="Add To My Portfolio" />
+      </div>
+    </form>
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#stockmarkets" data-icon="list" class="icon-list">Stock Markets</a></li>
+          <li><a href="#home" data-icon="home">Home</a></li>
+          <li><a href="#myportfolio" data-icon="user" class="ui-btn-active">My Portfolio</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> <!-- My Portfolio page ends -->
+
+  <script src="js/Chart.js"></script>
+  <script>
+    function init() {
+      var chartData = {
+        labels: ["Jan", "Feb", "Mar", "Apr"],  // date
+        datasets: [
+          {
+            fillColor: "rgba(255, 255, 255, 0)",
+            strokeColor: "#ff792e", 
+            pointColor: "#194964",
+            data: [65, 45, 10, 100]   // price for the date
+          }
+        ]
+      }
+  
+      cvs = document.getElementById("canvas");
+      ctx = cvs.getContext("2d");
+      myChart = new Chart(ctx).Line(chartData);
+    }
+  </script>
 
   <div class='marquee'>Less text here</div>
 

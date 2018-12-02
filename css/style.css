@@ -17,3 +17,9 @@ body {
   background-image: url("./img/chart.png");
   background-size: 20px 20px;
 }
+
+#home-background {
+  height: 500px;
+  background: url("./img/bull.jpg") no-repeat center center;
+  background-size: auto 1000px;
+}
