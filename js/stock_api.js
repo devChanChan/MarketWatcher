@@ -29,6 +29,10 @@ function constructURL(url) {
 }
 
 function getTopStocks() {
+  return getStockDataPoint(TOP_STOCKS.join(","));
+}
+
+function getStockDataPoint(stock) {
   var items = [
     "close_price",
     "change",
@@ -41,14 +45,15 @@ function getTopStocks() {
     method: "GET",
     url: constructURL("/data_point"),
     data: {
-      identifier: TOP_STOCKS.join(","),
+      identifier: stock,
       item: items.join(",")
     }
   };
 
   var serializedOptions = ajax_options(options);
+
   return $.ajax(serializedOptions)
-    .then(handleGetTopStocksSuccess)
+    .then(handleGetStockDataPointSuccess)
     .fail(function (error) {
       console.error(error);
     });
@@ -58,9 +63,30 @@ function searchStock(ticker) {
 }
 
 function getStockDetails(ticker) {
+  return getStockDataPoint(ticker).then(function (stocks) {
+    var stock = stocks[0];
+
+    var options = {
+      method: "GET",
+      url: constructURL("/prices"),
+      data: {
+        identifier: ticker
+      }
+    };
+
+    var serializedOptions = ajax_options(options);
+
+    return $.ajax(serializedOptions)
+      .then(function (response) {
+        return handleGetPricesSuccess(response, stock);
+      })
+      .fail(function (error) {
+        console.error(error);
+      });
+  });
 }
 
-function handleGetTopStocksSuccess(response) {
+function handleGetStockDataPointSuccess(response) {
   var stocks = response.data;
   var transformedData = [];
   var groupedData = groupTopStocksResponseData(stocks);
@@ -93,5 +119,11 @@ function groupTopStocksResponseData(data) {
     {}
   );
   return transformed;
+}
+
+function handleGetPricesSuccess(response, stock) {
+  var prices = response.data;
+  stock.priceHistory = prices;
+  return stock;
 }
 
