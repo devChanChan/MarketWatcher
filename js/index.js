@@ -1,5 +1,4 @@
 var stocksTemplate = Handlebars.compile(stocksTemplate);
-var stockTicker = null;
 
 $(document).ready(function(){
 
@@ -50,7 +49,7 @@ function displayTopStocks() {
 }
 
 function stockDetailsInit() {
-  stockTicker = getUrlParams("ticker");
+  var stockTicker = getUrlParams("ticker");
   console.log(stockTicker);
 }
 

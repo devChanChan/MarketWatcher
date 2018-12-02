@@ -15,6 +15,36 @@
     <div data-role="header">
       <h2>Stock Market Watcher</h2>
     </div>
+    <form role="main" class="ui-content" id="myForm" method="POST">
+      <canvas id="canvas"></canvas>
+
+      <div class="ui-field-contain" method="post">
+        <fieldset data-role="controlgroup">
+          <legend>Company:</legend>
+          <input type="text" name="company" placeholder="symbol" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Price: $</legend>
+          <input type="text" name="price" placeholder="price" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Quantity:</legend>
+          <input type="text" name="quantity" placeholder="# of shares" />
+        </fieldset>
+        <fieldset data-role="controlgroup">
+          <legend>Date:</legend>
+          <input type="date" name="date" />
+        </fieldset>
+        <fieldset data-role="controlgroup" data-type="horizontal">
+          <legend>Type:</legend>
+          <input type="radio" name="type" id="typeBuy" value="buy" checked="checked" />
+          <label for="typeBuy">BUY</label>
+          <input type="radio" name="type" id="typeSell" value="sell" />
+          <label for="typeSell">SELL</label>
+        </fieldset>
+        <input type="submit" value="Add To My Portfolio" />
+      </div>
+    </form>
     <div data-role="footer" data-position="fixed">
       <div data-role="navbar">
         <ul>
