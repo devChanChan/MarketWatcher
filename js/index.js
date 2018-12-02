@@ -1,3 +1,4 @@
 $(document).ready(function(){
-    $('.marquee').marquee();
+  $('.marquee').marquee();
+  getTopStocks();
 });

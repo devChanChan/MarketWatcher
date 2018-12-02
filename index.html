@@ -7,15 +7,7 @@
   <title>Stock Market Watcher</title>
 
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-  <script src="./js/jquery.marquee.js"></script>
-  <script src="./js/jquery.pause.min.js"></script>
-
   <link rel="stylesheet" href="./css/style.css">
-  <script src="js/index.js"></script>
-
 </head>
 <body>
   <!-- Home page -->
@@ -76,5 +68,21 @@
   </div> <!-- My Portfolio page ends -->
 
   <div class='marquee'>Less text here</div>
+
+  <!-- Vendor libraries -->
+  <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+
+  <script src="./js/jquery.marquee.js"></script>
+  <script src="./js/jquery.pause.min.js"></script>
+
+  <!-- js files - needs to be in this order or it'll break-->
+  <script src="js/models.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/stock_api.js"></script>
+  <script src="js/index.js"></script>
 </body>
 </html>
