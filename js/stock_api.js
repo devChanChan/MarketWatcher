@@ -1,4 +1,4 @@
-var API_KEY = "OmRkZGYyODcwNTc2MDQwMjI5N2FkNGRiMGJjYzc5MDc4";
+var API_KEY = "OjU2NzNlZDRiNDdhNDcwMmJjNWRhNjE0ZTdkMzM2Nzgw";
 var BASE_URL = "https://api.intrinio.com";
 var TOP_STOCKS = [
   "AAPL",

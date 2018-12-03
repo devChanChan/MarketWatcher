@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
   <link rel="stylesheet" href="./css/style.css"/>
 </head>
-<body onload="init()">
+<body>
   <!-- Home page -->
   <div data-role="page" id="home">
     <div data-role="header">
@@ -87,25 +87,6 @@
   </div> <!-- Stock Details Page Ends -->
 
   <script src="js/Chart.js"></script>
-  <script>
-    function init() {
-      var chartData = {
-        labels: ["Jan", "Feb", "Mar", "Apr"],  // date
-        datasets: [
-          {
-            fillColor: "rgba(255, 255, 255, 0)",
-            strokeColor: "#ff792e",
-            pointColor: "#194964",
-            data: [65, 45, 10, 100]   // price for the date
-          }
-        ]
-      }
-
-      cvs = document.getElementById("canvas");
-      ctx = cvs.getContext("2d");
-      myChart = new Chart(ctx).Line(chartData);
-    }
-  </script>
 
   <div class='marquee'>Less text here</div>
 

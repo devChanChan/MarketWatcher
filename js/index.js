@@ -28,8 +28,6 @@ $(document).ready(function(){
   $('.marquee').marquee();
 
   displayTopStocks();
-  // fetch every 5 seconds
-  setInterval(displayTopStocks, 5000);
 });
 
 $(document).on("pagebeforeshow","#stock-details", stockDetailsInit);
@@ -54,7 +52,32 @@ function stockDetailsInit() {
 
   getStockDetails(stockTicker).then(function (stock) {
     console.log(stock);
+    drawPriceChart(stock);
   });
+}
+
+function drawPriceChart(stock) {
+  var canvas = document.getElementById("stock-chart").getContext('2d');
+  var dateLabels = _.map(stock.priceHistory, function (item) {
+    return item.date;
+  });
+  var priceData = _.map(stock.priceHistory, function (item) {
+    return item.close;
+  });
+
+  var chartData = {
+    labels: dateLabels,
+    datasets: [
+      {
+        fillColor: "rgba(255, 255, 255, 0)",
+        strokeColor: "#ff792e",
+        pointColor: "#194964",
+        data: priceData
+      }
+    ]
+  };
+
+  var chart = new Chart(canvas).Line(chartData);
 }
 
 function getUrlParams(prop) {
